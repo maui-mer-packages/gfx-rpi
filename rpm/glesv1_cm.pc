@@ -7,6 +7,5 @@ Name: GLESv1_CM
 Requires: bcm_host
 Description: Broadcom VideoCore GLESv1_CM library
 Version: 1
-Libs: -L${libdir} -lGLESv1_CM -lm -lbcm_host
-Cflags: -I${includedir} -I${includedir}/interface -I${includedir}/interface/vcos/pthreads
-
+Libs: -L${libdir} -lGLESv1_CM
+Cflags: -I${includedir}
