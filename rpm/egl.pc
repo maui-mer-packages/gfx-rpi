@@ -1,0 +1,12 @@
+prefix=/usr
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: EGL
+Requires: glesv2
+Description: Broadcom VideoCore EGL library
+Version: 10
+Libs: -L${libdir} -lEGL -lm -lbcm_host
+Cflags: -I${includedir} -I${includedir}/interface -I${includedir}/interface/vcos/pthreads
+
