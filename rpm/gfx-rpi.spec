@@ -5,7 +5,7 @@ Name:       gfx-rpi
 
 
 Summary:    VideoCore libraries for Raspberry Pi
-Version:    0.0.3
+Version:    0.0.4
 Release:    1
 Group:      Graphics/Display and Graphics Adaptation
 License:    Broadcom Proprietary
