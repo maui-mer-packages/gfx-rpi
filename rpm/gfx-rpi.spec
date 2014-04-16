@@ -5,7 +5,7 @@ Name:       gfx-rpi
 
 
 Summary:    VideoCore libraries for Raspberry Pi
-Version:    0.0.2
+Version:    0.0.3
 Release:    1
 Group:      Graphics/Display and Graphics Adaptation
 License:    Broadcom Proprietary
@@ -145,11 +145,9 @@ rm -rf %{buildroot}
 install -d %{buildroot}/
 mkdir -p %{buildroot}/usr
 %ifarch armv6hl
-rm hardfp/opt/vc/sbin/install_vmcs
 rm -rf hardfp/opt/vc/src
 cp -av hardfp/opt/vc/* %{buildroot}/usr/
 %else
-rm opt/vc/sbin/install_vmcs
 rm -rf opt/vc/src
 cp -av opt/vc/* %{buildroot}/usr/
 %endif
@@ -170,10 +168,6 @@ cp %{SOURCE2} %{buildroot}/usr/lib/pkgconfig/
 cp %{SOURCE3} %{buildroot}/usr/lib/pkgconfig/
 cp %{SOURCE4} %{buildroot}/usr/lib/pkgconfig/
 cp %{SOURCE5} %{buildroot}/usr/lib/pkgconfig/
-
-# WAR:
-# This is missing a dependency but it's not used anywhere, so let's just ignore it
-rm %{buildroot}/%{_libdir}/libmmal.so
 
 
 %post -p /sbin/ldconfig
@@ -205,8 +199,15 @@ rm %{buildroot}/%{_libdir}/libmmal.so
 %{_bindir}/edidparser
 %{_bindir}/vchiq_test
 %{_bindir}/tvservice
+%{_bindir}/raspistill
+%{_bindir}/raspivid
+%{_bindir}/raspiyuv
 %{_sbindir}/vcfiled
-#%{_libdir}/libmmal.so
+%{_bindir}/mmal_vc_diag
+%{_libdir}/libmmal.so
+%{_libdir}/libmmal_core.so
+%{_libdir}/libmmal_util.so
+%{_libdir}/libmmal_vc_client.so
 %{_libdir}/libWFC.so
 %{_libdir}/libOpenVG.so
 %{_libdir}/libvcos.so
@@ -222,6 +223,7 @@ rm %{buildroot}/%{_libdir}/libmmal.so
 %{_includedir}/interface
 %{_includedir}/vcinclude
 %{_includedir}/VG
+%{_includedir}/WF
 %{_includedir}/bcm_host.h
 %{_libdir}/libvchostif.a
 %{_libdir}/libvcfiled_check.a
