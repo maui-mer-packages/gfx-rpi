@@ -6,6 +6,6 @@ includedir=${prefix}/include
 Name: GLESv1_CM
 Requires: bcm_host
 Description: Broadcom VideoCore GLESv1_CM library
-Version: 1
+Version: 10
 Libs: -L${libdir} -lGLESv1_CM
 Cflags: -I${includedir}
